@@ -1,10 +1,15 @@
 import {Router} from 'express';
-
 const router = Router()
 
-router.get('/', (req,res) => {
-    res.json('get liste')
-})
+import * as privateController from "../controllers/private.controller"
+
+router.post('/', privateController.createPrivate)
+
+router.get('/', privateController.getPrivate)
+
+router.get('/:privateId', privateController.getPrivateById)
+router.put('/:privateId', privateController.updatePrivateById)
+router.delete('/:privateId', privateController.deletePrivateById)
 
 
 
