@@ -3,6 +3,9 @@ import morgan from 'morgan'
 import pkg from "../package.json"
 const app = express()
 
+import privates from './routes/private.routes'
+
+
 app.set('pkg', pkg)
 app.use(morgan('dev'));
 
@@ -14,6 +17,9 @@ app.get('/', (req, res) => {
         version: app.get('pkg').version
     });
 })
+
+app.use('/private',privates)
+
 
 export default app;
 
