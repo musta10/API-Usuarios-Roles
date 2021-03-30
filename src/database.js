@@ -2,7 +2,8 @@ import mongoose from "mongoose"
 
 mongoose.connect("mongodb://localhost/usersdb", {
      useNewUrlParser: true, 
-     useUnifiedTopology: true
+     useUnifiedTopology: true,
+     useCreateIndex: true
 })
 .then(db => console.log('Db is connected'))
-.catch(error => console.log(error))
+.catch(error => console.log(error))     
