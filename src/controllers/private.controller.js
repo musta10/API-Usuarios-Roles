@@ -8,15 +8,22 @@ export const createPrivate = async (req, res) => {
     const privateSaved = await newPrivate.save()
     res.status(201).json(privateSaved)
 }
-export const getPrivate = (req, res) => {
-    res.json('obtener chanels')
+export const getPrivate = async (req, res) => {
+   const privates = await Private.find()
+   res.json(privates)
 }
-export const getPrivateById = (req, res) => {
+export const getPrivateById = async (req, res) => {
+    const privateGroup = await Private.findById(req.params.privateId)
+    res.status(200).json(privateGroup)
 
 }
-export const updatePrivateById = (req, res) => {
-
+export const updatePrivateById =  async (req, res) => {
+   const updatedPrivate = await Private.findByIdAndUpdate(req.params.privateId, req.body, {
+    new: true
+   })
+   res.status(200).json(updatedPrivate)
 }
-export const deletePrivateById = (req, res) => {
-
+export const deletePrivateById =  async (req, res) => {
+    await Private.findByIdAndDelete(req.params.privateId)
+    res.status(204).json()
 }
