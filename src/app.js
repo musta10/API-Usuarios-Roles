@@ -4,6 +4,7 @@ import pkg from "../package.json"
 const app = express()
 
 import privates from './routes/private.routes'
+import authRoutes from './routes/auth.routes'
 
 
 app.set('pkg', pkg)
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/private',privates)
+app.use('/auth',authRoutes)
 
 
 export default app;
