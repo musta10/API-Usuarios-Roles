@@ -2,7 +2,7 @@ import User from "../models/User"
 
 
 export const signUp = async (req,res) => {
-    const {username, email , password ,roles} = req.body
+    const {username, email , password, roles} = req.body
     console.log(req.body);
     
     const newUser = new User({
