@@ -27,6 +27,8 @@ const userSchema = new Schema(
     versionKey: false,
   }
 );
+// const hash = bcrypt.hashSync(password, 10);
+// return hash
 
 userSchema.statics.encryptPassword = async (password) => {
   const salt = await bcrypt.genSalt(10);
