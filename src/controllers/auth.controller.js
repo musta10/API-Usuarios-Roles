@@ -33,5 +33,5 @@ if(roles) {
 };
 
 export const signIn = async (req, res) => {
-  res.json("signin");
+  await User.findOne({email: req.body.email});
 };
