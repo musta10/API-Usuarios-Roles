@@ -29,9 +29,9 @@ if(roles) {
   });
   console.log(savedUser);
 
-  res.json({ token });
+  res.status(200).json({token})
 };
 
 export const signIn = async (req, res) => {
-  await User.findOne({email: req.body.email});
+  await User.findOne({email: req.body.email})
 };
