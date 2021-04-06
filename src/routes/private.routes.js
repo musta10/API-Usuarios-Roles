@@ -2,14 +2,15 @@ import {Router} from 'express';
 const router = Router()
 
 import * as privateController from "../controllers/private.controller"
+import {verifyToken} from "../middlewares"
 
-router.post('/', privateController.createPrivate)
+router.post('/', verifiToken, privateController.createPrivate)
 
 router.get('/', privateController.getPrivate)
 
 router.get('/:privateId', privateController.getPrivateById)
-router.put('/:privateId', privateController.updatePrivateById)
-router.delete('/:privateId', privateController.deletePrivateById)
+router.put('/:privateId',  verifyToken ,privateController.updatePrivateById)
+router.delete('/:privateId', verifyToken, privateController.deletePrivateById)
 
 
 
