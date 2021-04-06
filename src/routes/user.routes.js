@@ -1,13 +1,13 @@
 import {Router} from 'express';
 const router = Router()
 import * as userCtrl from "../controllers/user.controller"
-import {authJwt, validerSignup} from "../middlewares" 
+import {authJwt, verifySignup} from "../middlewares" 
 
 
 router.post('/', [
     authJwt.verifyToken,
     authJwt.isAdmin,
-    validerSignup.checkRolesExiste
+    verifySignup.checkRolesExiste
 ], userCtrl.createUser)
 
 

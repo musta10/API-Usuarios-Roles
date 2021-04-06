@@ -9,4 +9,4 @@ const privateChanel = new Schema({
     versionKey: false
 })
 
-export default model('private', privateChanel)
+export default model('Private', privateChanel)
