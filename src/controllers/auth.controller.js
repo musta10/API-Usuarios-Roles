@@ -36,5 +36,12 @@ export const signIn = async (req, res) => {
   if(!usuario) return res.status(400).json({message: "Usuario No Encontrado"})
   console.log(usuario);
 
-  res.json({token: ''})
+  const validePassword = await User.comparePassword(req.body.password, usuario.password)
+  if(!validePassword) return res.status(401).json({roken: null, message: 'password incorrect'})
+
+  const token = jwt.sign({id: usuario._id, }, config.SECRET,{
+    expiresIn: 86400, // 24hours
+  })
+  res.json({token: token})
+
 };
