@@ -3,8 +3,9 @@ import morgan from 'morgan'
 import pkg from "../package.json"
 
 import {createRoles} from "./libs/initialSetup"
-import privates from './routes/private.routes'
+import privatesRoutes from './routes/private.routes'
 import authRoutes from './routes/auth.routes'
+import usersRoutes from './routes/user.routes'
 
 const app = express()
 createRoles();
@@ -22,8 +23,9 @@ app.get('/', (req, res) => {
     });
 })
 
-app.use('/private',privates)
-app.use('/auth',authRoutes)
+app.use('/private', privatesRoutes)
+app.use('/auth', authRoutes)
+app.use('/users', usersRoutes)
 
 
 export default app;

@@ -1,3 +1,3 @@
 import * as  authJwt from "./authenticationJwt"
-
-export {authJwt};
+import * as validerSignup from "./validationSignup"
+export {authJwt, validerSignup};

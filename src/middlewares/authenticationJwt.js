@@ -21,6 +21,7 @@ export const verifyToken = async (req, res, next) => {
   } catch (error) { return res.status(401).json({message: "No autorizado sin token"})}
 };
 
+
 export const isAdmin = async (req, res, next) =>{
   const user = await User.findById(req.userId)
   const roles = await Role.find({_id: {$in: user.roles}})
