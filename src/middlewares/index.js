@@ -1,3 +1,3 @@
-import {verifyToken} from "./authenticationJwt"
+import * as  authJwt from "./authenticationJwt"
 
-export {verifyToken};
+export {authJwt};
