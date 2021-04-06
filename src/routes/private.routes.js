@@ -4,7 +4,7 @@ const router = Router()
 import * as privateController from "../controllers/private.controller"
 import {verifyToken} from "../middlewares"
 
-router.post('/', verifiToken, privateController.createPrivate)
+router.post('/', verifyToken, privateController.createPrivate)
 
 router.get('/', privateController.getPrivate)
 
