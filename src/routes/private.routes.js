@@ -9,8 +9,8 @@ router.post('/', [authJwt.verifyToken, authJwt.isAdmin], privateController.creat
 router.get('/', privateController.getPrivate)
 
 router.get('/:privateId', privateController.getPrivateById)
-router.put('/:privateId',  [authJwt.verifyToken, authJwt.isModerator] ,privateController.updatePrivateById)
-router.delete('/:privateId', [authJwt.verifyToken, authJwt.isModerator], privateController.deletePrivateById)
+router.put('/:privateId',  [authJwt.verifyToken, authJwt.isAdmin] ,privateController.updatePrivateById)
+router.delete('/:privateId', [authJwt.verifyToken, authJwt.isAdmin], privateController.deletePrivateById)
 
 
 
